@@ -1,14 +1,15 @@
 # Habits Tracker App
 
 Aula 4: https://www.youtube.com/watch?v=JiMZPRb8mLM
+<br>
 Aula 5: https://www.youtube.com/watch?v=JiMZPRb8mLM
 
 
 Create new habits and keep track of your progress!
 
-- Web: Built with React, Typescript, Vitem Tailwind CSS
-- Mobile: Built with React Native, Expo, NativeWind
-- Server: Built with Node, Fastify, Prisma, Typescript, SQLite
+- Web: React, Typescript, Vite, Tailwind CSS
+- Mobile: React Native, Expo, NativeWind, Typescript
+- Server: Node, Fastify, Prisma, Typescript, SQLite, Zod
 
 To run locally clone the repository and run:
 <br>
