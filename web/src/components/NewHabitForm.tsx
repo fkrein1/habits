@@ -16,7 +16,7 @@ const availableWeekDays = [
 export function NewHabitForm() {
   const [title, setTitle] = useState('');
   const [weekDays, setWeekDays] = useState<number[]>([]);
-  
+
   function handleToggleWeekDay(weekDayIndex: number) {
     if (weekDays.includes(weekDayIndex)) {
       setWeekDays((prevState) =>
@@ -29,16 +29,16 @@ export function NewHabitForm() {
 
   async function createNewHabit(event: FormEvent) {
     event.preventDefault();
-    if(!title || weekDays.length === 0){
-      return
+    if (!title.trim() || weekDays.length === 0) {
+      return;
     }
     await api.post('habits', {
       title,
-      weekDays
-    })
-    alert('Hábito criado com sucesso')
-    setTitle('')
-    setWeekDays([])
+      weekDays,
+    });
+    alert('Hábito criado com sucesso');
+    setTitle('');
+    setWeekDays([]);
   }
 
   return (
