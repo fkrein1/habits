@@ -10,4 +10,6 @@ const app = Fastify();
 app.register(cors);
 app.register(appRoutes);
 
-app.listen({ port: PORT }).then(() => console.log(`Running on ${PORT}`));
+app
+  .listen({ port: PORT, host: '0.0.0.0' })
+  .then(() => console.log(`Running on ${PORT}`));

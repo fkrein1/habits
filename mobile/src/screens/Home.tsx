@@ -1,6 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import dayjs from 'dayjs';
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Alert, ScrollView, Text, View } from 'react-native';
 import { DAY_SIZE, HabitDay } from '../components/HabitDay';
 import { Header } from '../components/Header';
@@ -25,22 +25,24 @@ export function Home() {
   const [summary, setSummary] = useState<Summary[]>([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const getSumary = async () => {
-      setLoading(true);
-      try {
-        const response = await api.get('summary');
-        setSummary(response.data);
-      } catch (error) {
-        Alert.alert('Ops', 'Não foi possível carregar o sumário de hábitos');
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  useFocusEffect(
+    useCallback(() => {
+      const getSumary = async () => {
+        setLoading(true);
+        try {
+          const response = await api.get('summary');
+          setSummary(response.data);
+        } catch (error) {
+          Alert.alert('Ops', 'Não foi possível carregar o sumário de hábitos');
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-    getSumary();
-  }, []);
+      getSumary();
+    }, []),
+  );
 
   if (loading) {
     return <Loading />;

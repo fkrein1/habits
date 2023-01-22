@@ -40,7 +40,6 @@ export function HabitsList({
   }, []);
 
   async function handleToggleHabit(habitId: string) {
-    console.log(`/habits/${habitId}/${date.toISOString()}/toogle`);
     await api.patch(`/habits/${habitId}/${date.toISOString()}/toogle`);
     const isHabitAlreadyCompleted =
       habitsInfo!.completedHabits.includes(habitId);
