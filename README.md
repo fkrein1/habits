@@ -1,10 +1,5 @@
 # Habits Tracker App
 
-Aula 4: https://www.youtube.com/watch?v=JiMZPRb8mLM
-<br>
-Aula 5: https://www.youtube.com/watch?v=JiMZPRb8mLM
-
-
 Create new habits and keep track of your progress!
 
 - Web: React, Typescript, Vite, Tailwind CSS
